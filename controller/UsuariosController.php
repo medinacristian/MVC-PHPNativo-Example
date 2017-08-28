@@ -49,7 +49,7 @@ class UsuariosController extends ControladorBase {
   }
   
   public function hola(){
-    $usuarios = new Usuario();
+    $usuarios = new UsuariosModel();
     $usu=$usuarios->getUnUsuario();
     var_dump($usu);
   }
