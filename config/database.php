@@ -8,5 +8,3 @@ return array(
     "database"  => "pruebas",
     "charset"   => "utf8"
 );
-
-?>

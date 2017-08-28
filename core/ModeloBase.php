@@ -10,7 +10,6 @@ class ModeloBase extends EntidadBase{
   
   public function ejecutarSql($query){
     $query = $this->db()->query($query);
-    
     if($query){
       if($query->num_rows > 1){
         while ($row = $query->fetch_object()){
@@ -26,12 +25,11 @@ class ModeloBase extends EntidadBase{
     } else {
       $resultSet = FALSE;
     }
-    
     return $resultSet;
     
   }
   
-  
+  //Aquí podemos crear métodos para los modelos de consulta
   
   
 }

@@ -1,15 +1,21 @@
 <?php
 
 class UsuariosController extends ControladorBase {
+  
   public function __construct() {
     parent::__construct();
   }
   
+  
   public function index() {
+    
+    //Creamos el objeto usuario
     $usuario = new Usuario();
     
+    //Conseguimos todos los usuarios
     $allUsers = $usuario->getAll();
     
+    //Cargamos la vista index y le pasamos los valores
     $this->view("index", array(
         "allusers" => $allUsers,
         "Hola" => "EJEMPLO MVC POO PHP"
@@ -18,19 +24,14 @@ class UsuariosController extends ControladorBase {
   
   public function crear(){
     if(isset($_POST["nombre"])){
+      
+      //Creamos un usuario
       $usuario = new Usuario();
-      
-      $nombre = $_POST["nombre"];
-      $apellido = $_POST["apellido"];
-      $email = $_POST["email"];
-      $password = $_POST["password"];
-
-      $usuario->setNombre($nombre);
-      $usuario->setApellido($apellido);
-      $usuario->setEmail($email);
-      $usuario->setPassword($password);
-      
-      $save = $usuario->save();
+      $usuario->setNombre($_POST["nombre"]);
+      $usuario->setApellido($_POST["apellido"]);
+      $usuario->setEmail($_POST["email"]);
+      $usuario->setPassword(sha1($_POST["password"]));
+      $save=$usuario->save();
 
     }
     
@@ -43,9 +44,14 @@ class UsuariosController extends ControladorBase {
       
       $usuario = new Usuario();
       $usuario->deleteById($id);
-      
-      $this->redirect();
     }
+    $this->redirect();
+  }
+  
+  public function hola(){
+    $usuarios = new Usuario();
+    $usu=$usuarios->getUnUsuario();
+    var_dump($usu);
   }
   
 }

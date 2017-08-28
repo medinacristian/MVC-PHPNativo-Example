@@ -1,9 +1,13 @@
 <?php
 
 class Usuario extends EntidadBase{
-  private $id, $nombre, $apellido, $email, $password;
+  private $id;
+  private $nombre;
+  private $apellido;
+  private $email;
+  private $password;
   
-  public function __construct($table) {
+  public function __construct() {
     $table = "usuarios";    
     parent::__construct($table);
   }
@@ -49,17 +53,15 @@ class Usuario extends EntidadBase{
   }
 
   public function save(){
-    $query = "INSERT INTO usuarios(id, nombre, apellido, email, password) "
-            . "VALUES(NULL,"
-            . "'".$this->nombre."',"
-            . "'".$this->apellido."',"
-            . "'".$this->email."',"
-            . "'".$this->password."',"
-            . ")";
-    
-    $save = $this->db()->query($query);
+    $query="INSERT INTO usuarios (id,nombre,apellido,email,password)
+            VALUES(NULL,
+                   '".$this->nombre."',
+                   '".$this->apellido."',
+                   '".$this->email."',
+                   '".$this->password."');";
+    $save=$this->db()->query($query);
+    //$this->db()->error;
     return $save;
-    
   }
   
 }

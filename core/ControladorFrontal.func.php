@@ -10,20 +10,19 @@ function cargarControlador($controller){
   
   require_once $strFileController;
   $controllerObj = new $controlador();
-  
   return $controllerObj;
     
 }
 
 function cargarAccion($controllerObj, $action){
-  $accion = $action;
+  $accion=$action;
   $controllerObj->$accion();
 }
 
 function lanzarAccion($controllerObj) {
   if(isset($_GET["action"]) && method_exists($controllerObj, $_GET["action"])){
     cargarAccion($controllerObj, $_GET["action"]);
-  } else {
+  }else{
     cargarAccion($controllerObj, ACCION_DEFECTO);
   }
 }
