@@ -38,6 +38,6 @@ CREATE TABLE `usuarios` (
 -- ----------------------------
 -- Records of usuarios
 -- ----------------------------
-INSERT INTO `usuarios` VALUES ('1', 'victor@victor.com', 'password', 'victor', 'robles');
-INSERT INTO `usuarios` VALUES ('2', 'juan@juan.com', 'password', 'juan', 'lopez');
-INSERT INTO `usuarios` VALUES ('4', 'dadfa', '60f796a446e6577892b3cb1886d2a29e4c41226e', 'Antonio', 'Jose');
+INSERT INTO `usuarios` VALUES ('1', 'medinacristian@gmail.com', 'password', 'Cristian', 'Medina');
+INSERT INTO `usuarios` VALUES ('2', 'a@b.cl', 'password', 'Carolina', 'González');
+INSERT INTO `usuarios` VALUES ('3', 'dadfa', '60f796a446e6577892b3cb1886d2a29e4c41226e', 'Diego', 'Roque');
